@@ -1,8 +1,10 @@
 #include "Arduino.h"
+#include <ESP8266WiFi.h>
+#include <ArduinoOTA.h>
+
 #include <ShiftOutRegister.h>
 #include <Shutter.h>
 #include <Light.h>
-#include <ESP8266WiFi.h>
 
 extern "C" {
 #include "user_interface.h"
@@ -56,12 +58,17 @@ void setup() {
   // 2 = power ; 3 = UP/DOWN
   shutter1.begin(2, 3, 20, &sh_register);
 
+  ArduinoOTA.setPassword(OTA_PASS);
+  ArduinoOTA.begin();
 }
 
 void loop() {
   if (WiFi.status() != WL_CONNECTED) {
     wificonnect();
   }
+
+  ArduinoOTA.handle();
+
   // Check if a client has connected
   WiFiClient client = server.available();
   if (!client) {
