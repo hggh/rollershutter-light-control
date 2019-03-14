@@ -44,10 +44,10 @@ void setup() {
   server.begin();
 
   /**
-     D1 == data
-     D2 == shift
-     D5 == store
-     D6 == enable/OE
+     D1/GPIO5  == data
+     D2/GPIO4  == shift
+     D5/GPIO14 == store
+     D6/GPIO12 == enable/OE
   **/
   sh_register.init(D1, D2, D5, D6, 8);
 
