@@ -44,12 +44,12 @@ void setup() {
   server.begin();
 
   /**
-     D1/GPIO5  == data
+     D6/GPIO12 == data
      D2/GPIO4  == shift
-     D5/GPIO14 == store
-     D6/GPIO12 == enable/OE
+     D1/GPIO5  == store
+     D5/GPIO14  == enable/OE
   **/
-  sh_register.init(D1, D2, D5, D6, 8);
+  sh_register.init(D6, D2, D1, D5, 8);
 
   // light 1 == K2
   light1.begin(0, &sh_register);
