@@ -44,9 +44,9 @@ void setup() {
   server.begin();
 
   /**
-     D6/GPIO12 == data
-     D2/GPIO4  == shift
-     D1/GPIO5  == store
+     D6/GPIO12 == data/SER
+     D2/GPIO4  == shift/SRCLK
+     D1/GPIO5  == store/RCLK
      D5/GPIO14  == enable/OE
   **/
   sh_register.init(D6, D2, D1, D5, 8);
