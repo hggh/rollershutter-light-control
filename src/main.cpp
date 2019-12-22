@@ -38,6 +38,7 @@ void wificonnect() {
 }
 
 void setup() {
+  WiFi.hostname("esp-esstisch");
   setup_timer1();
   wificonnect();
 
